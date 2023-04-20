@@ -42,7 +42,7 @@ const Home = () => {
             </Typography>
           </ThemeProvider>
           <Typography
-          sx={{p:"10px"}}
+            sx={{ p: "10px" }}
             fontFamily="fantasy"
             fontSize="25px"
             variant="h2"
@@ -51,13 +51,23 @@ const Home = () => {
           >
             PLOMERÌA - ALBAÑILERÌA - ELECTRICIDAD - PINTURA - IMPERMEABILIZACIÒN
             -<br />
-            ALARMAS VECINALES-AZULEJOS - PISOS - REMODELACIONES Y LIMPIEZA DE
-            TANQUES
+            AZULEJOS - PISOS - REMODELACIONES Y LIMPIEZA DE TANQUES
           </Typography>
-        <Box sx={{display:"flex", justifyContent:"center",gap:"10px",mt:"20px"}}>
-          <Button color="primary" variant="contained">WhatsApp</Button>
-          <Button color="primary" variant="contained">Email</Button>
-        </Box>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "center",
+              gap: "10px",
+              mt: "20px",
+            }}
+          >
+            <Button color="primary" variant="contained">
+              WhatsApp
+            </Button>
+            <Button color="primary" variant="contained">
+              Email
+            </Button>
+          </Box>
         </Box>
       </Box>
     </div>

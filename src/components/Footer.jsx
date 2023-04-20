@@ -4,9 +4,11 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
 import { IconButton } from "@mui/material";
-import WhatsAppIcon from '@mui/icons-material/WhatsApp';
-import EmailIcon from '@mui/icons-material/Email';
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import EmailIcon from "@mui/icons-material/Email";
+import Map from "./Map";
 
+import Location from "@mui/icons-material/LocationOn";
 export default function Footer() {
   return (
     <Paper
@@ -14,37 +16,36 @@ export default function Footer() {
       component="footer"
       variant="outlined"
     >
-      <Container maxWidth="lg">
+      <Container
+        sx={{ display: "flex",justifyContent:"center", flexDirection: { xs: "column", md: "row" },gap:{md:10} }}
+        maxWidth="lg"
+      >
+        <Map />
         <Box
           sx={{
-            flexGrow: 1,
-            justifyContent: "center",
             display: "flex",
             my: 1,
+            flexDirection: "column",
+            mt: { md: "12rem" },
           }}
         >
-          <Typography variant="caption" color="white" textAlign="center">
+          <Typography variant="caption" color="white" textAlign={{xs:"center",md:"start"}}>
             <IconButton sx={{ color: "white" }}>
-              <WhatsAppIcon />1123679535
-            </IconButton>
-            <IconButton sx={{ color: "white" }}>
-              <EmailIcon />erria@hotmail.com
+              {/* <Location /> */}
+              La Martine 1182/ San Antonio De Padua
             </IconButton>
           </Typography>
-        </Box>
-
-        <Box
-          sx={{
-            flexGrow: 1,
-            justifyContent: "center",
-            display: "flex",
-            mb: 2,
-            alignItems: "center",
-            gap: "10px",
-          }}
-        >
-          <Typography variant="caption" color="white" textAlign="center">
-            La Martine 1182/ San Antonio De Padua
+          <Typography variant="caption" color="white" textAlign={{xs:"center",md:"start"}}>
+            <IconButton sx={{ color: "white" }}>
+              <WhatsAppIcon />
+              11-5529-6365
+            </IconButton>
+          </Typography>
+          <Typography variant="caption" color="white" textAlign={{xs:"center",md:"start"}}>
+            <IconButton sx={{ color: "white" }}>
+              <EmailIcon />
+              erria@hotmail.com
+            </IconButton>
           </Typography>
         </Box>
       </Container>
