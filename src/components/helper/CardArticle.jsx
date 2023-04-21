@@ -11,7 +11,7 @@ import React from "react";
 
 
 
-export const CardArticle = ({img:img}) => {
+export const CardArticle = ({article:{img,title,description,}}) => {
   return (
     <Box
       sx={{
@@ -52,7 +52,7 @@ export const CardArticle = ({img:img}) => {
         }}
       >
         <Typography fontSize={"30px"} variant="h3" color="black">
-          Pintura
+          {title}
         </Typography>
 
         <Typography
@@ -61,7 +61,7 @@ export const CardArticle = ({img:img}) => {
           color="black"
           fontSize="20px"
         >
-          Realizo todo tipo de tareas de pintura. Presupuesto sin costo
+          {description}
         </Typography>
         <Typography
           sx={{ mt: "1rem", color: "green" }}
@@ -75,7 +75,7 @@ export const CardArticle = ({img:img}) => {
           color="black"
           fontSize="20px"
         >
-          Zona San antonio de padua
+          Zona Oeste únicamente
         </Typography>
         <CardActions
           disableSpacing
@@ -87,13 +87,13 @@ export const CardArticle = ({img:img}) => {
           }}
         >
             <Box sx={{ display: "flex", gap: "5px" }}>
-          <Button variant="contained" color="primary">
+          <Button variant="contained" color="secondary">
               <Typography
                 sx={{ display: "flex", gap: "5px", alignItems: "center" }}
                 fontSize={{ xs: "12px", sm: "14px", md: "16px" }}
                 color={"white"}
               >
-                contacto
+                Consultar
               </Typography>
           </Button>
             </Box>

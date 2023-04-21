@@ -12,3 +12,7 @@ body {
   flex-flow: column nowrap;
   background-attachment: fixed;
 }
+
+html {
+  scroll-behavior: smooth;
+}

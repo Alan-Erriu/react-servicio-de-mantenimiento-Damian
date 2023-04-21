@@ -11,13 +11,16 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import IconWhatsApp from "./helper/IconWhatsApp";
+import logo from "./helper/img/logo.jpg"
 
 const pages = [
-  "Albañilería",
-  "Pintura",
-  "Plomería",
-  "Electricidad",
-  "Contacto",
+  { text: "Inicio", href: "#home" },
+  { text: "Pintura", href: "#Pintura" },
+  { text: "Albañilería", href: "#Albañilería" },
+  { text: "Plomería", href: "#Plomería" },
+  { text: "Electricidad", href: "#Electricidad" },
+  { text: "Gas", href: "#Gasista" },
+  { text: "Contacto", href: "#Contacto" },
 ];
 
 function ResponsiveAppBar() {
@@ -36,11 +39,12 @@ function ResponsiveAppBar() {
     <AppBar position="fixed">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
+          {/* -------------------------------------logo/link/home-desc----------------------------------------------  */}
           <Typography
             variant="h6"
             noWrap
             component="a"
-            href="/"
+            href="#home"
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
@@ -50,7 +54,13 @@ function ResponsiveAppBar() {
               color: "inherit",
               textDecoration: "none",
             }}
-          ></Typography>
+          >
+          <Avatar
+    alt="logo mantenimiento residencial"
+    src={logo}
+    sx={{ width: 50, height: 50 }}
+  />
+          </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
@@ -81,39 +91,49 @@ function ResponsiveAppBar() {
                 display: { xs: "block", md: "none" },
               }}
             >
+              {/*---------------------------- items menu mobile------------------------------------------- */}
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                <MenuItem key={page.href} onClick={handleCloseNavMenu}>
+                  <a style={{ textDecoration: "none" }} href={page.href}>
+                    <Typography textAlign="center">{page.text}</Typography>
+                  </a>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
+         
           <Typography
             variant="h5"
             noWrap
             textAlign="center"
             sx={{
               display: { xs: "flex", md: "none" },
-              mr:"30px",
+              mr: "30px",
               flexGrow: 1,
             }}
           >
             <IconWhatsApp />
           </Typography>
+          {/* ---------------------------------links/mode/desc---------------------------- */}
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
+              <a
+                key={page.text}
+                style={{ textDecoration: "none" }}
+                href={page.href}
               >
-                {page}
-              </Button>
+                <Button
+                  onClick={handleCloseNavMenu}
+                  sx={{ my: 2, color: "white", display: "block" }}
+                >
+                  {page.text}
+                </Button>
+              </a>
             ))}
           </Box>
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             <Button>
-              {/*---------------------------------- whatsapp-icon-btn-------------------------- */}
+              {/*---------------------------------- whatsapp-icon-btn-desc-------------------------- */}
               <Avatar
                 sx={{
                   width: "50px",
@@ -126,7 +146,7 @@ function ResponsiveAppBar() {
               />
             </Button>
             <Button>
-              {/*---------------------------------- whatsapp-icon-btn-------------------------- */}
+              {/*---------------------------------- lacation-icon-btn-desc-------------------------- */}
               <Avatar
                 sx={{
                   width: "45px",
@@ -134,7 +154,7 @@ function ResponsiveAppBar() {
                   display: { xs: "none", md: "flex" },
                   mr: 1,
                 }}
-                alt="Whatsapp"
+                alt="ubicacion"
                 src="https://play-lh.googleusercontent.com/Kf8WTct65hFJxBUDm5E-EpYsiDoLQiGGbnuyP6HBNax43YShXti9THPon1YKB6zPYpA=w240-h480-rw"
               />
             </Button>

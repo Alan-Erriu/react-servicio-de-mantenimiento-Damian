@@ -3,12 +3,13 @@ import FormContac from "./helper/FormContact";
 
 const Contac = () => {
   return (
-    <Box
+    <Box id ="Contacto"
       sx={{
         display: "flex",
         mt: "8rem",
         gap: "200px",
         justifyContent: "center",
+        pt:"5rem"
       }}
     >
       <FormContac />

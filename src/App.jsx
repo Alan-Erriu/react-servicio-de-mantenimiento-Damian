@@ -3,7 +3,6 @@ import Footer from "./components/Footer";
 import Home from "./components/Home";
 import Nav from "./components/Nav";
 import Contact from "./components/Contac";
-import Map from "./components/Map";
 
 function App() {
   return (
@@ -11,7 +10,6 @@ function App() {
       <Nav />
       <Home />
       <Articles />
-      {/* <Map /> */}
       <Contact />
       <Footer />
     </div>

@@ -6,9 +6,9 @@ import Paper from "@mui/material/Paper";
 import { IconButton } from "@mui/material";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import EmailIcon from "@mui/icons-material/Email";
-import Map from "./Map";
+import Map from "./helper/Map";
 
-import Location from "@mui/icons-material/LocationOn";
+
 export default function Footer() {
   return (
     <Paper
