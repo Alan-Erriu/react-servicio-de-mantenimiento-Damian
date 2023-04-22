@@ -16,7 +16,7 @@ const Articles = () => {
     >
       {dataArticles.map((article) => {
         return (
-          <Box id={article.title}  key={article.id}>
+          <Box  key={article.id}>
             <Typography
               variant="h2"
               color="gray"
@@ -25,7 +25,7 @@ const Articles = () => {
             >
               <hr />
             </Typography>
-            <Box
+            <Box id={article.title}
               sx={{
                 display: "flex",
                 flexDirection: "column",
@@ -33,7 +33,7 @@ const Articles = () => {
                 alignItems: "center",
               }}
             >
-              <CardArticle article={article} />
+              <CardArticle article={article}  />
             </Box>
           </Box>
         );

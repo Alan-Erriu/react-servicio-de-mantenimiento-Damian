@@ -11,7 +11,7 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import IconWhatsApp from "./helper/IconWhatsApp";
-import logo from "./helper/img/logo.jpg"
+import logo from "./helper/img/logo.jpg";
 
 const pages = [
   { text: "Inicio", href: "#home" },
@@ -55,11 +55,11 @@ function ResponsiveAppBar() {
               textDecoration: "none",
             }}
           >
-          <Avatar
-    alt="logo mantenimiento residencial"
-    src={logo}
-    sx={{ width: 50, height: 50 }}
-  />
+            <Avatar
+              alt="logo mantenimiento residencial"
+              src={logo}
+              sx={{ width: 50, height: 50 }}
+            />
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -95,13 +95,13 @@ function ResponsiveAppBar() {
               {pages.map((page) => (
                 <MenuItem key={page.href} onClick={handleCloseNavMenu}>
                   <a style={{ textDecoration: "none" }} href={page.href}>
-                    <Typography textAlign="center">{page.text}</Typography>
+                    <Typography color="black" textAlign="center">{page.text}</Typography>
                   </a>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
-         
+
           <Typography
             variant="h5"
             noWrap
@@ -112,7 +112,13 @@ function ResponsiveAppBar() {
               flexGrow: 1,
             }}
           >
+            <a
+                target="_blank"
+                style={{ textDecoration: "none" }}
+                href="https://wa.me/1155296365"
+              >
             <IconWhatsApp />
+            </a>
           </Typography>
           {/* ---------------------------------links/mode/desc---------------------------- */}
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
@@ -132,31 +138,41 @@ function ResponsiveAppBar() {
             ))}
           </Box>
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
+            {/*---------------------------------- whatsapp-icon-btn-desc-------------------------- */}
+
+              <a
+                target="_blank"
+                style={{ textDecoration: "none" }}
+                href="https://wa.me/1155296365"
+              >
             <Button>
-              {/*---------------------------------- whatsapp-icon-btn-desc-------------------------- */}
-              <Avatar
-                sx={{
-                  width: "50px",
-                  height: "50px",
-                  display: { xs: "none", md: "flex" },
-                  mr: 1,
-                }}
-                alt="Whatsapp"
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/640px-WhatsApp.svg.png"
-              />
+                <Avatar
+                  sx={{
+                    width: "50px",
+                    height: "50px",
+                    display: { xs: "none", md: "flex" },
+                    mr: 1,
+                  }}
+                  alt="Whatsapp"
+                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/640px-WhatsApp.svg.png"
+                />
             </Button>
+              </a>
+
+            {/*---------------------------------- lacation-icon-btn-desc-------------------------- */}
             <Button>
-              {/*---------------------------------- lacation-icon-btn-desc-------------------------- */}
-              <Avatar
-                sx={{
-                  width: "45px",
-                  height: "45px",
-                  display: { xs: "none", md: "flex" },
-                  mr: 1,
-                }}
-                alt="ubicacion"
-                src="https://play-lh.googleusercontent.com/Kf8WTct65hFJxBUDm5E-EpYsiDoLQiGGbnuyP6HBNax43YShXti9THPon1YKB6zPYpA=w240-h480-rw"
-              />
+              <a style={{ textDecoration: "none" }} href="#mapa">
+                <Avatar
+                  sx={{
+                    width: "45px",
+                    height: "45px",
+                    display: { xs: "none", md: "flex" },
+                    mr: 1,
+                  }}
+                  alt="ubicacion"
+                  src="https://play-lh.googleusercontent.com/Kf8WTct65hFJxBUDm5E-EpYsiDoLQiGGbnuyP6HBNax43YShXti9THPon1YKB6zPYpA=w240-h480-rw"
+                />
+              </a>
             </Button>
           </Box>
         </Toolbar>

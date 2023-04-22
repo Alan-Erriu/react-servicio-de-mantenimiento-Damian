@@ -1,17 +1,11 @@
 import React from "react";
-import {
-  Card,
-  CardMedia,
-  Typography,
-  Box,
-  CardActionArea,
-} from "@mui/material";
+import { Card, CardMedia, Box, CardActionArea } from "@mui/material";
 import map from "./img/map.png";
-// // import casa from "./img/casa";
 
 const Map = () => {
   return (
     <Box
+      id="mapa"
       sx={{
         display: "flex",
         gap: "200px",
@@ -29,14 +23,17 @@ const Map = () => {
           color: "#BDD8CC",
         }}
       >
-        <CardActionArea sx={{ width: "100%", height: "100%", }} target="_blank" href="https://goo.gl/maps/khUaHwjj6wA8XRGH8">
+        <CardActionArea
+          sx={{ width: "100%", height: "100%" }}
+          target="_blank"
+          href="https://goo.gl/maps/khUaHwjj6wA8XRGH8"
+        >
           <CardMedia
-          sx={{objectFit:"cover"}}
+            sx={{ objectFit: "cover" }}
             className="imgProject"
             component="img"
             height="100%"
             image={map}
-            
             alt="project"
           />
         </CardActionArea>

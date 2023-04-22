@@ -63,12 +63,16 @@ const Home = () => {
               mt: "20px",
             }}
           >
-            <Button sx={{gap:0.3}} color="secondary" variant="contained">
-              <WhatsAppIcon /> WhatsApp
-            </Button>
-            <Button sx={{gap:0.3}} color="primary" variant="contained">
-              <EmailIcon /> Email
-            </Button>
+            <a target="_blank" style={{ textDecoration: "none" }} href="https://wa.me/1155296365">
+              <Button sx={{ gap: 0.3 }} color="secondary" variant="contained">
+                <WhatsAppIcon /> WhatsApp
+              </Button>
+            </a>
+            <a style={{ textDecoration: "none" }} href="#Contacto">
+              <Button sx={{ gap: 0.3 }} color="primary" variant="contained">
+                <EmailIcon /> Email
+              </Button>
+            </a>
           </Box>
         </Box>
       </Box>

@@ -7,11 +7,9 @@ import {
   Typography,
 } from "@mui/material";
 import React from "react";
-// import img from "../helper/img/paint.jpg";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 
-
-
-export const CardArticle = ({article:{img,title,description,}}) => {
+export const CardArticle = ({ article: { img, title, description } }) => {
   return (
     <Box
       sx={{
@@ -86,17 +84,23 @@ export const CardArticle = ({article:{img,title,description,}}) => {
             mt: "1rem",
           }}
         >
-            <Box sx={{ display: "flex", gap: "5px" }}>
-          <Button variant="contained" color="secondary">
-              <Typography
-                sx={{ display: "flex", gap: "5px", alignItems: "center" }}
-                fontSize={{ xs: "12px", sm: "14px", md: "16px" }}
-                color={"white"}
-              >
-                Consultar
-              </Typography>
-          </Button>
-            </Box>
+          <Box sx={{ display: "flex", gap: "5px" }}>
+            <a
+              target="_blank"
+              style={{ textDecoration: "none" }}
+              href="https://wa.me/1155296365"
+            >
+              <Button variant="contained" color="secondary">
+                <Typography
+                  sx={{ display: "flex", gap: "5px", alignItems: "center" }}
+                  fontSize={{ xs: "12px", sm: "14px", md: "16px" }}
+                  color={"white"}
+                >
+                  <WhatsAppIcon /> Consultar
+                </Typography>
+              </Button>
+            </a>
+          </Box>
         </CardActions>
       </Box>
     </Box>

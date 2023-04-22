@@ -7,8 +7,32 @@ import {
   InputLabel,
   TextField,
 } from "@mui/material";
-
+import React, { useRef } from "react";
+import emailjs from "@emailjs/browser";
 const FormContac = () => {
+  //-------------------------------send mail from contact//
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "service_3jrqzr9",
+        "template_ds8a8jc",
+        form.current,
+        "g8s23DkCf267gl_5D"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+  };
+  //----------------------------------end-------------------------------
   return (
     <Box
       sx={{
@@ -38,21 +62,41 @@ const FormContac = () => {
           <Typography textAlign={"center"} variant="h3">
             Contacto
           </Typography>
-          <InputLabel htmlFor="component-helper">Nombre</InputLabel>
-          <TextField fullWidth type="text" required></TextField>
-          <InputLabel htmlFor="component-helper">Número</InputLabel>
-          <TextField type="text" required></TextField>
-          <InputLabel htmlFor="component-helper">Email</InputLabel>
-          <TextField type="text" variant="outlined" required></TextField>
-          <InputLabel htmlFor="component-helper">Asunto</InputLabel>
-          <TextField rows={4} type="text" variant="outlined"></TextField>
-          <Button
-            color="primary"
-            sx={{ marginTop: "1rem" }}
-            variant="contained"
-          >
-            Enviar
-          </Button>
+          <form ref={form} onSubmit={sendEmail}>
+            <InputLabel htmlFor="component-helper">Nombre</InputLabel>
+            <TextField
+              fullWidth
+              name="user_name"
+              type="text"
+              required
+            ></TextField>
+            <InputLabel htmlFor="component-helper">Email</InputLabel>
+            <TextField
+              fullWidth
+              type="text"
+              name="email_name"
+              variant="outlined"
+              required
+            ></TextField>
+            <InputLabel htmlFor="component-helper">Mensaje</InputLabel>
+            <textarea style={{width:"100%",height:"150px"}} name="message"></textarea>
+            {/* <TextField
+              fullWidth
+             
+              type="text"
+              name="message"
+              variant="outlined"
+            ></TextField> */}
+            <Button
+              type="submit"
+              value="send"
+              color="primary"
+              sx={{ marginTop: "1rem", width: "100%" }}
+              variant="contained"
+            >
+              Enviar
+            </Button>
+          </form>
         </CardContent>
       </Card>
     </Box>
@@ -60,3 +104,4 @@ const FormContac = () => {
 };
 
 export default FormContac;
+ 
