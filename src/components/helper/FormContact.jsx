@@ -9,6 +9,7 @@ import {
 } from "@mui/material";
 import React, { useRef } from "react";
 import emailjs from "@emailjs/browser";
+import swal from "sweetalert2";
 const FormContac = () => {
   //-------------------------------send mail from contact//
   const form = useRef();
@@ -25,10 +26,14 @@ const FormContac = () => {
       )
       .then(
         (result) => {
-          console.log(result.text);
+          swal.fire("Ok", "Mensaje Enviado", "success");
         },
         (error) => {
-          console.log(error.text);
+          swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Revise los campos!",
+          });
         }
       );
   };
@@ -79,14 +84,11 @@ const FormContac = () => {
               required
             ></TextField>
             <InputLabel htmlFor="component-helper">Mensaje</InputLabel>
-            <textarea style={{width:"100%",height:"150px"}} name="message"></textarea>
-            {/* <TextField
-              fullWidth
-             
-              type="text"
+            <textarea
+              style={{ width: "100%", height: "150px" }}
               name="message"
-              variant="outlined"
-            ></TextField> */}
+            ></textarea>
+
             <Button
               type="submit"
               value="send"
@@ -104,4 +106,3 @@ const FormContac = () => {
 };
 
 export default FormContac;
- 
