@@ -5,7 +5,7 @@ import { Card, CardMedia,Box } from "@mui/material";
 const House = () => {
   return (
     <Box
-    id="mapa"
+    
     sx={{
       display: "flex",
       gap: "200px",

@@ -7,7 +7,7 @@ import { IconButton } from "@mui/material";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import EmailIcon from "@mui/icons-material/Email";
 import Map from "./helper/Map";
-import House from "./helper/House";
+
 
 export default function Footer() {
   return (
@@ -27,7 +27,7 @@ export default function Footer() {
       >
         <Box
           sx={{
-            flexGrow:1,
+            flexGrow: 1,
             display: "flex",
             my: 1,
             flexDirection: "column",
@@ -44,8 +44,9 @@ export default function Footer() {
               style={{ textDecoration: "none" }}
               href="https://goo.gl/maps/khUaHwjj6wA8XRGH8"
             >
-              <IconButton sx={{ color: "white" }}>
-                La Martine 1182 <br/>San Antonio De Padua
+              <IconButton sx={{ color: "white",textAlign:"start" }}>
+                La Martine 1182 <br />
+                San Antonio De Padua
               </IconButton>
             </a>
           </Typography>
@@ -79,7 +80,7 @@ export default function Footer() {
           </Typography>
         </Box>
         <Map />
-        <House/>
+        {/* <House/> */}
       </Container>
     </Paper>
   );

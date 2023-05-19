@@ -4,6 +4,8 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { Button } from "@mui/material";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import EmailIcon from "@mui/icons-material/Email";
+import Articles from "./Articles";
+import Contac from "./Contac";
 
 const theme = createTheme();
 
@@ -23,7 +25,7 @@ theme.typography.h1 = {
 const Home = () => {
   return (
     <div>
-      <Box id="home" sx={{ display: "flex", justifyContent: "center" }}>
+      <Box sx={{ display: "flex", justifyContent: "center" }}>
         <Box
           sx={{
             marginTop: "10rem",
@@ -76,6 +78,8 @@ const Home = () => {
           </Box>
         </Box>
       </Box>
+      <Articles/>
+      <Contac/>
     </div>
   );
 };

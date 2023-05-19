@@ -12,9 +12,9 @@ import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import IconWhatsApp from "./helper/IconWhatsApp";
 import logo from "./helper/img/logo.jpg";
+import { Link, useLocation } from "react-router-dom";
 
 const pages = [
-  { text: "Inicio", href: "#home" },
   { text: "Pintura", href: "#Pintura" },
   { text: "Albañilería", href: "#Albañilería" },
   { text: "Plomería", href: "#Plomería" },
@@ -22,10 +22,11 @@ const pages = [
   { text: "Gas", href: "#Gasista" },
   { text: "Contacto", href: "#Contacto" },
 ];
-
 function ResponsiveAppBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+
+  const params = useLocation();
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -40,27 +41,27 @@ function ResponsiveAppBar() {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           {/* -------------------------------------logo/link/home-desc----------------------------------------------  */}
-          <Typography
-            variant="h6"
-            noWrap
-            component="a"
-            href="#home"
-            sx={{
-              mr: 2,
-              display: { xs: "none", md: "flex" },
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
-            }}
-          >
-            <Avatar
-              alt="logo mantenimiento residencial"
-              src={logo}
-              sx={{ width: 50, height: 50 }}
-            />
-          </Typography>
+          <Link style={{ textDecoration: "none" }} to="/">
+            <Typography
+              variant="h6"
+              noWrap
+              sx={{
+                mr: 2,
+                display: { xs: "none", md: "flex" },
+                fontFamily: "monospace",
+                fontWeight: 700,
+                letterSpacing: ".3rem",
+                color: "inherit",
+                textDecoration: "none",
+              }}
+            >
+              <Avatar
+                alt="logo mantenimiento residencial"
+                src={logo}
+                sx={{ width: 50, height: 50 }}
+              />
+            </Typography>
+          </Link>
 
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
@@ -95,7 +96,9 @@ function ResponsiveAppBar() {
               {pages.map((page) => (
                 <MenuItem key={page.href} onClick={handleCloseNavMenu}>
                   <a style={{ textDecoration: "none" }} href={page.href}>
-                    <Typography color="black" textAlign="center">{page.text}</Typography>
+                    <Typography color="black" textAlign="center">
+                      {page.text}
+                    </Typography>
                   </a>
                 </MenuItem>
               ))}
@@ -113,39 +116,49 @@ function ResponsiveAppBar() {
             }}
           >
             <a
-                target="_blank"
-                style={{ textDecoration: "none" }}
-                href="https://wa.me/1155296365"
-              >
-            <IconWhatsApp />
+              target="_blank"
+              style={{ textDecoration: "none" }}
+              href="https://wa.me/1155296365"
+            >
+              <IconWhatsApp />
             </a>
           </Typography>
           {/* ---------------------------------links/mode/desc---------------------------- */}
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {pages.map((page) => (
-              <a
-                key={page.text}
-                style={{ textDecoration: "none" }}
-                href={page.href}
-              >
-                <Button
-                  onClick={handleCloseNavMenu}
-                  sx={{ my: 2, color: "white", display: "block" }}
-                >
-                  {page.text}
-                </Button>
-              </a>
-            ))}
+            <Link style={{ textDecoration: "none" }} to="/">
+              <Button sx={{ my: 2, color: "white", display: "block" }}>
+                Inicio
+              </Button>
+            </Link>
+
+            {params.pathname === "/"
+              ? pages.map((page) => (
+                  <a
+                    key={page.text}
+                    style={{ textDecoration: "none" }}
+                    href={page.href}
+                  >
+                    <Button sx={{ my: 2, color: "white", display: "block" }}>
+                      {page.text}
+                    </Button>
+                  </a>
+                ))
+              : null}
+            <Link style={{ textDecoration: "none" }} to="/sobremi">
+              <Button sx={{ my: 2, color: "white", display: "block" }}>
+                sobre mi
+              </Button>
+            </Link>
           </Box>
           <Box sx={{ display: { xs: "none", md: "flex" } }}>
             {/*---------------------------------- whatsapp-icon-btn-desc-------------------------- */}
 
-              <a
-                target="_blank"
-                style={{ textDecoration: "none" }}
-                href="https://wa.me/1155296365"
-              >
-            <Button>
+            <a
+              target="_blank"
+              style={{ textDecoration: "none" }}
+              href="https://wa.me/1155296365"
+            >
+              <Button>
                 <Avatar
                   sx={{
                     width: "50px",
@@ -156,8 +169,8 @@ function ResponsiveAppBar() {
                   alt="Whatsapp"
                   src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/640px-WhatsApp.svg.png"
                 />
-            </Button>
-              </a>
+              </Button>
+            </a>
 
             {/*---------------------------------- lacation-icon-btn-desc-------------------------- */}
             <Button>
