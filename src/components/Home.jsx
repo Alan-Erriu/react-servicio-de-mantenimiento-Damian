@@ -6,6 +6,7 @@ import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import EmailIcon from "@mui/icons-material/Email";
 import Articles from "./Articles";
 import Contac from "./Contac";
+import dataArticles from "./helper/dataArticles";
 
 const theme = createTheme();
 
@@ -26,7 +27,7 @@ const Home = () => {
   return (
     <div>
       <Box sx={{ display: "flex", justifyContent: "center" }}>
-        <Box
+        <Box id ="home"
           sx={{
             marginTop: "10rem",
             display: "flex",
@@ -41,6 +42,7 @@ const Home = () => {
               variant="h1"
               color="black"
               textAlign="center"
+              
             >
               Mantenimiento Residencial
             </Typography>
@@ -78,7 +80,7 @@ const Home = () => {
           </Box>
         </Box>
       </Box>
-      <Articles/>
+      <Articles dataArticles={dataArticles}/>
       <Contac/>
     </div>
   );

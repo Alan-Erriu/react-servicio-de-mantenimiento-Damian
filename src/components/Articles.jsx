@@ -1,9 +1,9 @@
 import React from "react";
 import { CardArticle } from "./helper/CardArticle";
 import { Box, Typography } from "@mui/material";
-import dataArticles from "./helper/dataArticles";
 
-const Articles = () => {
+
+const Articles = ({dataArticles}) => {
   return (
     <Box
       sx={{

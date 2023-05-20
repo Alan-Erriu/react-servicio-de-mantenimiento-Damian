@@ -41,7 +41,11 @@ function ResponsiveAppBar() {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           {/* -------------------------------------logo/link/home-desc----------------------------------------------  */}
-          <Link style={{ textDecoration: "none" }} to="/">
+          <Link
+            onClick={() => window.scrollTo(0, 0)}
+            style={{ textDecoration: "none" }}
+            to="/"
+          >
             <Typography
               variant="h6"
               noWrap
@@ -93,15 +97,33 @@ function ResponsiveAppBar() {
               }}
             >
               {/*---------------------------- items menu mobile------------------------------------------- */}
-              {pages.map((page) => (
-                <MenuItem key={page.href} onClick={handleCloseNavMenu}>
+              <MenuItem onClick={handleCloseNavMenu}>
+                <Link
+                  onClick={() => window.scrollTo(0, 0)}
+                  style={{ textDecoration: "none" }}
+                  to="/"
+                >
+                  <Typography color="black" textAlign="center">
+                    Inicio
+                  </Typography>
+                </Link>
+              </MenuItem>
+              {params.pathname === "/"? pages.map((page) => (
+                <MenuItem onClick={handleCloseNavMenu}>
                   <a style={{ textDecoration: "none" }} href={page.href}>
                     <Typography color="black" textAlign="center">
                       {page.text}
                     </Typography>
                   </a>
                 </MenuItem>
-              ))}
+              )):null}
+              <MenuItem onClick={handleCloseNavMenu}>
+                <Link  onClick={() => window.scrollTo(0, 0)}  style={{ textDecoration: "none" }} to="/sobremi">
+                  <Typography color="black" textAlign="center">
+                    sobre mi
+                  </Typography>
+                </Link>
+              </MenuItem>
             </Menu>
           </Box>
 
@@ -125,7 +147,11 @@ function ResponsiveAppBar() {
           </Typography>
           {/* ---------------------------------links/mode/desc---------------------------- */}
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            <Link style={{ textDecoration: "none" }} to="/">
+            <Link
+              onClick={() => window.scrollTo(0, 0)}
+              style={{ textDecoration: "none" }}
+              to="/"
+            >
               <Button sx={{ my: 2, color: "white", display: "block" }}>
                 Inicio
               </Button>
@@ -144,7 +170,7 @@ function ResponsiveAppBar() {
                   </a>
                 ))
               : null}
-            <Link style={{ textDecoration: "none" }} to="/sobremi">
+            <Link  onClick={() => window.scrollTo(0, 0)}  style={{ textDecoration: "none" }} to="/sobremi">
               <Button sx={{ my: 2, color: "white", display: "block" }}>
                 sobre mi
               </Button>

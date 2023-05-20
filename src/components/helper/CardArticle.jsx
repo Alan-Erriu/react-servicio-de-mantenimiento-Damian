@@ -9,7 +9,9 @@ import {
 import React from "react";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 
-export const CardArticle = ({ article: { img, title, description } }) => {
+export const CardArticle = ({
+  article: { img, title, description },
+}) => {
   return (
     <Box
       sx={{
